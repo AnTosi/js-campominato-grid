@@ -10,3 +10,17 @@
 //eventListener (click, ) nelle celle per colorarle con il click
 
 // comincio con i 3 bottoni di generazione della griglia
+// ok li ho creati in HTML
+
+let easyClick = document.getElementById("buttOne").addEventListener("click", function () {
+    console.log("ez");
+  }); 
+
+let mediumClick = document.getElementById("buttTwo").addEventListener("click", function () {
+    console.log("meh");
+}); 
+
+let hardClick = document.getElementById("buttThree").addEventListener("click", function () {
+    console.log("ora si comincia a ragionare");
+}); 
+

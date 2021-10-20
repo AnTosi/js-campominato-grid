@@ -33,3 +33,24 @@
 .clicked  {
     background-color: cyan;
 }
+
+.selector {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+}
+
+h1 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
