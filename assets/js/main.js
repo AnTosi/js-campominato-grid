@@ -12,37 +12,48 @@
 
 // comincio con i 3 bottoni di generazione della griglia
 // ok li ho creati in HTML
-const easyN = 49;
+const hardN = 49;
 const mediumN = 81;
-const hardN = 100;
+const easyN = 100;
 
-const easy = "easy";
-const medium = "medium";
-const hard = "hard";
-let choice = "";
 
 
 // l'event listener  per qualche strano motivo non mi prende gli argomenti e/o non accetta la funzione, provo con return true e if sotto
 //non funziona, probabilmente con il prompt mi semplificherei la vita di molto
-let easyClick = document.getElementById("buttOne").addEventListener("click", function () {
-    let choice = "ez";
+document.getElementById("buttOne").addEventListener("click", function() {
+    generateGrid("easy", easyN)
 }); 
 
-let mediumClick = document.getElementById("buttTwo").addEventListener("click", function () {
-    return medium;
+document.getElementById("buttTwo").addEventListener("click", function() {
+    generateGrid("medium", mediumN)
 }); 
 
-let hardClick = document.getElementById("buttThree").addEventListener("click", function () {
-    return hard;
+
+document.getElementById("buttThree").addEventListener("click", function () {
+    generateGrid("hard", hardN)
 }); 
 
 
 
 //ora creo funzione, prima funzione normale poi se funziona inserisco anche reset
 
-function generateGrid (difficulty, cellN) {
-    for (let i = 1; i < cellN; i++) {
-        document.querySelector(".container").insertAdjacentHTML("beforeend", `<div class= "cell" + ${difficulty}">${i}</div>`);
+//ho dovuto cambiare il metodo di inserimento, invece di creare tutto il blocco inserisco l'elemento div come ha fatto vedere fabio a lezione, innerHTML per i numeri dentro (dati da i) il if contains serve per non aggiungere infinite volte la classe (in realtà non so se senza quello me la aggiunge una sola volta, non ho provato) (ok, ho provato, è completamente non necessario perché non duplica le classi già da solo XD )
+
+function generateGrid(difficulty, cellN) {
+    console.log(difficulty, cellN);
+    for (let i = 1; i <= cellN; i++) {
+        let gridCell = document.createElement("div");
+        gridCell.className = `cell ${difficulty}`;
+        gridCell.innerHTML = i;
+        document.querySelector(".container").insertAdjacentElement("beforeend", gridCell);
+        gridCell.addEventListener("click", function(){
+            // if (gridCell.classList.contains("clicked")) {
+
+            // } else 
+            {
+                this.classList.add("clicked")
+            }
+        })
     }
 }
 
@@ -59,4 +70,20 @@ function generateGrid (difficulty, cellN) {
     //     document.querySelector(".container").insertAdjacentHTML("beforeend", `<div class= "cell ${easy}">${i}</div>`);
     // }
 
-    if (easy) generateGrid(easy, easyN);
+    // if (easy) generateGrid(easy, easyN);
+
+// let gridCell = document.getElementsByClassName("cell");  
+
+// coloro di blu la cella dandogli la classe clicked
+//il primo if mi serve per non mettere infinite classi .clicked per infiniti click
+// gridCell.addEventListener("click", function(){
+//     if (this.className.contains("clicked")) {
+
+//     } else {this.classList.addClass("clicked")
+// }
+// })
+
+//me lo esegue prima che la griglia sia generata, quindi mi dà errore. lo devo inserire sopra
+
+
+//ora cr

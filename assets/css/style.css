@@ -26,9 +26,9 @@
 }
 
 .cell.medium {
-    width: calc(1000px / 9);
-    height: calc(1000px / 9);
-    line-height: calc(1000px / 9);
+    width: calc(1000px / 9.001);
+    height: calc(1000px / 9.001);
+    line-height: calc(1000px / 9.001);
 }
 
 .cell.easy {
