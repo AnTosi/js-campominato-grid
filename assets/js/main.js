@@ -20,6 +20,9 @@ const easyN = 100;
 
 // l'event listener  per qualche strano motivo non mi prende gli argomenti e/o non accetta la funzione, provo con return true e if sotto
 //non funziona, probabilmente con il prompt mi semplificherei la vita di molto
+
+//sbagliavo qualcosa nella sintassi, ora inserendo la funzione così me la prende (grazie Fabiola)
+
 document.getElementById("buttOne").addEventListener("click", function() {
     generateGrid("easy", easyN)
 }); 
@@ -37,13 +40,19 @@ document.getElementById("buttThree").addEventListener("click", function () {
 
 //ora creo funzione, prima funzione normale poi se funziona inserisco anche reset
 
-//ho dovuto cambiare il metodo di inserimento, invece di creare tutto il blocco inserisco l'elemento div come ha fatto vedere fabio a lezione, innerHTML per i numeri dentro (dati da i) il if contains serve per non aggiungere infinite volte la classe (in realtà non so se senza quello me la aggiunge una sola volta, non ho provato) (ok, ho provato, è completamente non necessario perché non duplica le classi già da solo XD )
+//ho dovuto cambiare il metodo di inserimento nella DOM, invece di creare tutto il blocco inserisco l'elemento div come ha fatto vedere fabio a lezione, innerHTML per i numeri dentro (dati da i) il if contains serve per non aggiungere infinite volte la classe (in realtà non so se senza quello me la aggiunge una sola volta, non ho provato) (ok, ho provato, è completamente non necessario perché non duplica le classi già da solo XD )
 
 
-//AGGIUNTA REGOLA DI RESET!!!
+//AGGIUNTO RESET!!!
 //document.querySelector(".container").innerHTML = "";
 
+//avrebbe senso scomporre la mega funzione enorme qua sotto in più funzioni (ad esempio una per clicked e una per il reset), ma sono le 18:30 e c'era la masterclass e io mi ero scordato
 
+/**
+ * Funzione che serve a generare una griglia con un click con un numero variabile di celle all'interno di un container, aggiunge anche la possibilità di clickare la casella e aggiungere una classe click. Inizia con un reset.
+ * @param {string} difficulty qua mettiamo la difficoltà (che sarà una classe)
+ * @param {number} cellN qua mettiamo il numero di celle (che dipenderà dalla difficoltà)
+ */
 function generateGrid(difficulty, cellN) {
     console.log(difficulty, cellN);
     document.querySelector(".container").innerHTML = "";
@@ -54,11 +63,10 @@ function generateGrid(difficulty, cellN) {
         gridCell.innerHTML = i;
         document.querySelector(".container").insertAdjacentElement("beforeend", gridCell);
         gridCell.addEventListener("click", function(){
-
             //questo pensavo servisse per evitare di aggiungere infinite volte la classe ma fa da solo
-            // if (gridCell.classList.contains("clicked")) {
+            if (gridCell.classList.contains("clicked")) {
 
-            // } else 
+            } else 
             {
                 this.classList.add("clicked")
             }
