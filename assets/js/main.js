@@ -39,14 +39,23 @@ document.getElementById("buttThree").addEventListener("click", function () {
 
 //ho dovuto cambiare il metodo di inserimento, invece di creare tutto il blocco inserisco l'elemento div come ha fatto vedere fabio a lezione, innerHTML per i numeri dentro (dati da i) il if contains serve per non aggiungere infinite volte la classe (in realtà non so se senza quello me la aggiunge una sola volta, non ho provato) (ok, ho provato, è completamente non necessario perché non duplica le classi già da solo XD )
 
+
+//AGGIUNTA REGOLA DI RESET!!!
+//document.querySelector(".container").innerHTML = "";
+
+
 function generateGrid(difficulty, cellN) {
     console.log(difficulty, cellN);
+    document.querySelector(".container").innerHTML = "";
     for (let i = 1; i <= cellN; i++) {
+        
         let gridCell = document.createElement("div");
         gridCell.className = `cell ${difficulty}`;
         gridCell.innerHTML = i;
         document.querySelector(".container").insertAdjacentElement("beforeend", gridCell);
         gridCell.addEventListener("click", function(){
+
+            //questo pensavo servisse per evitare di aggiungere infinite volte la classe ma fa da solo
             // if (gridCell.classList.contains("clicked")) {
 
             // } else 
@@ -86,4 +95,8 @@ function generateGrid(difficulty, cellN) {
 //me lo esegue prima che la griglia sia generata, quindi mi dà errore. lo devo inserire sopra
 
 
-//ora cr
+//ora creo funzione di reset
+
+// function reset () {
+//     document.querySelector(".container").innerHTML = "";
+// }
