@@ -6,6 +6,7 @@
 
 .container {
     margin: auto;
+    margin-top: 2rem;
     width: 1000px;
     height: 1000px;
     display: flex;
@@ -14,20 +15,26 @@
 
 .cell {
     border: 1px solid black;
+    vertical-align: middle;
+    text-align: center;
 }
+
 .cell.hard {
     width: calc(1000px / 10);
     height: calc(1000px / 10);
+    line-height: calc(1000px / 10);
 }
 
 .cell.medium {
     width: calc(1000px / 9);
     height: calc(1000px / 9);
+    line-height: calc(1000px / 9);
 }
 
 .cell.easy {
     width: calc(1000px / 7);
     height: calc(1000px / 7);
+    line-height: calc(1000px / 7);
 }
 
 .clicked  {

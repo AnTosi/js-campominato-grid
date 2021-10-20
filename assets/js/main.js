@@ -12,20 +12,6 @@
 
 // comincio con i 3 bottoni di generazione della griglia
 // ok li ho creati in HTML
-
-let easyClick = document.getElementById("buttOne").addEventListener("click", function generateGrid(easy, easyN){
-
-}); 
-
-let mediumClick = document.getElementById("buttTwo").addEventListener("click", function () {
-    return true
-}); 
-
-let hardClick = document.getElementById("buttThree").addEventListener("click", function () {
-    return true
-}); 
-
-
 const easyN = 49;
 const mediumN = 81;
 const hardN = 100;
@@ -33,12 +19,30 @@ const hardN = 100;
 const easy = "easy";
 const medium = "medium";
 const hard = "hard";
+let choice = "";
+
+
+// l'event listener  per qualche strano motivo non mi prende gli argomenti e/o non accetta la funzione, provo con return true e if sotto
+//non funziona, probabilmente con il prompt mi semplificherei la vita di molto
+let easyClick = document.getElementById("buttOne").addEventListener("click", function () {
+    let choice = "ez";
+}); 
+
+let mediumClick = document.getElementById("buttTwo").addEventListener("click", function () {
+    return medium;
+}); 
+
+let hardClick = document.getElementById("buttThree").addEventListener("click", function () {
+    return hard;
+}); 
+
+
 
 //ora creo funzione, prima funzione normale poi se funziona inserisco anche reset
 
 function generateGrid (difficulty, cellN) {
     for (let i = 1; i < cellN; i++) {
-        document.querySelector(".container").insertAdjacentHTML("beforeend") = `<div class= "cell" + ${difficulty}">${i}</div>`;
+        document.querySelector(".container").insertAdjacentHTML("beforeend", `<div class= "cell" + ${difficulty}">${i}</div>`);
     }
 }
 
@@ -48,8 +52,11 @@ function generateGrid (difficulty, cellN) {
 
 // function generateGrid (easy, easyN);
 
+// SONO STATO PIù DI UN'ORA BLOCCATO PERCHé IL DEBUGGER MI DICEVA CHE MANCAVA UNA GRAFFA E INVECE AVEVO SCRITTO MALE L'ADJACENT HTML
 
+//ora provo a inserire il ciclo for testato nell'event listener tramite la funzione
+    // for (let i = 1; i < easyN + 1; i++) {
+    //     document.querySelector(".container").insertAdjacentHTML("beforeend", `<div class= "cell ${easy}">${i}</div>`);
+    // }
 
-    for (let i = 1; i < easyN + 1; i++) {
-        document.querySelector(".container").insertAdjacentHTML("beforeend", `<div class= "cell ${easy}">${i}</div>`);
-    }
+    if (easy) generateGrid(easy, easyN);
