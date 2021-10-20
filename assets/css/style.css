@@ -20,9 +20,9 @@
 }
 
 .cell.hard {
-    width: calc(1000px / 10);
-    height: calc(1000px / 10);
-    line-height: calc(1000px / 10);
+    width: calc(1000px / 7);
+    height: calc(1000px / 7);
+    line-height: calc(1000px / 7);
 }
 
 .cell.medium {
@@ -32,9 +32,9 @@
 }
 
 .cell.easy {
-    width: calc(1000px / 7);
-    height: calc(1000px / 7);
-    line-height: calc(1000px / 7);
+    width: calc(1000px / 10);
+    height: calc(1000px / 10);
+    line-height: calc(1000px / 10);
 }
 
 .clicked  {
