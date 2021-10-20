@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: auto;
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    border: 1px solid black;
+}
+.cell.hard {
+    width: calc(1000px / 10);
+    height: calc(1000px / 10);
+}
+
+.cell.medium {
+    width: calc(1000px / 9);
+    height: calc(1000px / 9);
+}
+
+.cell.easy {
+    width: calc(1000px / 7);
+    height: calc(1000px / 7);
+}
+
+.clicked  {
+    background-color: cyan;
+}
